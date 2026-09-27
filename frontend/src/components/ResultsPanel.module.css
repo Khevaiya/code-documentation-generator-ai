@@ -1,0 +1,90 @@
+.wrapper { display: flex; flex-direction: column; gap: 24px; }
+
+.successBanner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: var(--radius);
+}
+
+.successTitle { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.successSub { font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.downloadCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.downloadCard:hover {
+  border-color: var(--card-color);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.cardIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardInfo { flex: 1; min-width: 0; }
+.cardLabel { display: block; font-size: 0.95rem; font-weight: 700; color: var(--text); }
+.cardExt { display: block; font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
+.downloadIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.downloadCard:hover .downloadIcon {
+  background: var(--card-color);
+  color: white;
+}
+
+.resetBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+
+.resetBtn:hover { border-color: var(--accent); color: var(--accent); }

@@ -1,0 +1,87 @@
+.wrapper { display: flex; flex-direction: column; gap: 16px; }
+
+.header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(59,130,246,0.15);
+  color: var(--accent);
+  border: 1px solid rgba(59,130,246,0.3);
+}
+
+.statusBadge[data-status="completed"] { background: rgba(16,185,129,0.12); color: var(--success); border-color: rgba(16,185,129,0.3); }
+.statusBadge[data-status="failed"] { background: rgba(239,68,68,0.12); color: var(--danger); border-color: rgba(239,68,68,0.3); }
+
+.message { font-size: 0.88rem; color: var(--text-secondary); }
+
+.progressBar {
+  height: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #60A5FA);
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.progressFill.failed { background: var(--danger); }
+.progressFill.done { background: linear-gradient(90deg, var(--success), #34D399); }
+
+.progressPct {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: -8px;
+}
+
+.steps {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.step.active { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.3); color: var(--accent); }
+.step.done { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.2); color: var(--success); }
+.step.idle { color: var(--text-muted); }
+
+.stepIcon { display: flex; align-items: center; }
+.stepLabel { white-space: nowrap; }
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.errorBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: var(--radius-sm);
+  color: var(--danger);
+  font-size: 0.88rem;
+}

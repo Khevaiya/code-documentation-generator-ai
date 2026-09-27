@@ -1,0 +1,171 @@
+.wrapper { display: flex; flex-direction: column; gap: 32px; }
+
+.section { display: flex; flex-direction: column; gap: 16px; }
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.sectionDesc { font-size: 0.82rem; color: var(--text-muted); }
+
+.bulkActions { display: flex; gap: 8px; flex-shrink: 0; }
+
+.bulkBtn {
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.bulkBtn:hover { border-color: var(--accent); color: var(--accent); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+.card.selected {
+  border-color: var(--accent);
+  background: rgba(59,130,246,0.08);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.cardIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(59,130,246,0.1);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card.selected .cardIcon { background: rgba(59,130,246,0.2); }
+
+.cardContent { flex: 1; min-width: 0; }
+.cardLabel { display: block; font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.cardDesc { display: block; font-size: 0.75rem; color: var(--text-muted); }
+
+.check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  color: white;
+}
+
+.check.checkActive { background: var(--accent); border-color: var(--accent); }
+
+/* Formats */
+.formatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.formatCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  position: relative;
+  color: var(--text-secondary);
+}
+
+.formatCard:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+.formatCard.selected {
+  border-color: var(--accent);
+  background: rgba(59,130,246,0.08);
+  color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.formatLabel { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+.formatDesc { font-size: 0.72rem; color: var(--text-muted); }
+
+.formatCheck {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  color: white;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Roles */
+.rolesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.roleBtn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.roleBtn:hover { border-color: var(--accent); color: var(--accent); }
+.roleBtn.selected { background: var(--accent); border-color: var(--accent); color: white; }
