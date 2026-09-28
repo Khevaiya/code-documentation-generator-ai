@@ -1,0 +1,264 @@
+.studio {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.25rem;
+  min-height: 650px;
+  background: rgba(10, 15, 29, 0.95);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 960px) {
+  .studio { grid-template-columns: 1fr; }
+}
+
+.sidebar {
+  background: rgba(13, 21, 38, 0.9);
+  border-right: 1px solid var(--border);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebarTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.lensNavList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lensNavBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.82rem;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.lensNavBtn:hover {
+  background: rgba(19, 30, 54, 0.6);
+  color: var(--text);
+}
+
+.lensNavBtn.active {
+  background: var(--accent-glow);
+  color: #818CF8;
+  border-color: rgba(99, 102, 241, 0.35);
+  font-weight: 600;
+}
+
+.lensNavLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lensFindingCount {
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.mainPanel {
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  max-height: 750px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.lensTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.viewModeTabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(19, 30, 54, 0.6);
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.viewModeBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewModeBtn.active {
+  background: var(--accent);
+  color: #FFF;
+  font-weight: 600;
+}
+
+.summaryBox {
+  background: rgba(13, 21, 38, 0.6);
+  border-left: 3px solid #818CF8;
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.sectionHeading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.diagramCard {
+  background: rgba(13, 21, 38, 0.8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.diagramHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(19, 30, 54, 0.6);
+  border-bottom: 1px solid var(--border);
+}
+
+.diagramTitle {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.diagramControls {
+  display: flex;
+  gap: 6px;
+}
+
+.toolBtn {
+  background: rgba(8, 12, 22, 0.6);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+.toolBtn:hover { background: var(--accent-glow); color: #FFF; border-color: var(--accent); }
+
+.diagramCanvas {
+  padding: 1.5rem;
+  background: #050811;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.findingCard {
+  background: rgba(13, 21, 38, 0.6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.findingTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.findingTitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.citationPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(99, 102, 241, 0.15);
+  color: #A5B4FC;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+}
+
+.recommendBox {
+  background: rgba(16, 185, 129, 0.08);
+  border-left: 2px solid #10B981;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  color: #34D399;
+  border-radius: 0 4px 4px 0;
+}
+
+.rawCodeBlock {
+  background: #050811;
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #E2E8F0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
