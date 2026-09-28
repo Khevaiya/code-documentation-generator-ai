@@ -12,11 +12,15 @@ from mermaid.__main__ import MermaidError
 MAX_OUTPUT_TOKENS = 65536
 
 
+import os
+
 def get_client():
-    if not GEMINI_API_KEY:
+    api_key = os.getenv("GEMINI_API_KEY") or GEMINI_API_KEY
+    if not api_key:
         raise ValueError("GEMINI_API_KEY environment variable is not set.")
-    genai.configure(api_key=GEMINI_API_KEY)
+    genai.configure(api_key=api_key)
     return genai
+
 
 
 def repair_truncated_json(text: str) -> str:

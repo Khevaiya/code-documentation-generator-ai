@@ -1,4 +1,3 @@
-
 from pydantic import BaseModel, Field
 from enum import Enum
 from typing import Any, Optional
@@ -155,6 +154,73 @@ class DocumentModel(BaseModel):
     executive_summary: Optional[str] = None
 
 
+# ── Knowledge Graph Models ───────────────────────────────────────────────────
+
+class GraphNode(BaseModel):
+    id: str
+    label: str
+    type: str                         # file, class, function, route, model, library, risk
+    layer: str                        # api, logic, data, library, security
+    path: Optional[str] = None
+    complexity: int = 1
+    degree: int = 0
+    in_degree: int = 0
+    out_degree: int = 0
+    centrality: float = 0.0
+    is_hub: bool = False
+    details: Optional[dict] = None
+
+
+class GraphEdge(BaseModel):
+    source: str
+    target: str
+    type: str                         # imports, calls, inherits, handles_route, references, contains
+    label: Optional[str] = None
+
+
+class KnowledgeGraph(BaseModel):
+    nodes: list[GraphNode] = []
+    edges: list[GraphEdge] = []
+    metrics: dict[str, Any] = {}
+    layers: list[str] = []
+
+
+# ── Health Score Models ──────────────────────────────────────────────────────
+
+class RemediationItem(BaseModel):
+    id: str
+    title: str
+    description: str
+    severity: str                     # CRITICAL, HIGH, MEDIUM, LOW
+    category: str                     # Security, Architecture, Performance, TechDebt, Testing
+    file_path: Optional[str] = None
+    suggested_fix: Optional[str] = None
+
+
+class HealthScore(BaseModel):
+    overall_score: int
+    grade: str                        # A+, A, B, C, D
+    security_score: int
+    architecture_score: int
+    performance_score: int
+    maintainability_score: int
+    reliability_score: int
+    radar_data: list[dict[str, Any]] = []
+    remediations: list[RemediationItem] = []
+    summary_text: str = ""
+
+
+# ── Terminal Log Model ───────────────────────────────────────────────────────
+
+class TerminalLog(BaseModel):
+    timestamp: str
+    level: str                        # INFO, SUCCESS, WARN, AST, GRAPH, LLM
+    message: str
+    phase: str
+
+
+# ── Job & Analysis Models ───────────────────────────────────────────────────
+
 class AnalysisRequest(BaseModel):
     input_type: InputType
     github_url: Optional[str] = None
@@ -171,10 +237,26 @@ class JobResponse(BaseModel):
     progress: int = 0
     output_files: dict[str, str] = {}
     error: Optional[str] = None
+    # Rich payloads for the Interactive Studio:
+    doc_model: Optional[dict] = None
+    knowledge_graph: Optional[dict] = None
+    health_score: Optional[dict] = None
+    terminal_logs: list[TerminalLog] = []
 
 
-class JobStatusUpdate(BaseModel):
-    job_id: str
-    status: JobStatus
-    progress: int = 0
-    message: str = ""
+class ChatMessage(BaseModel):
+    role: str                         # user, assistant
+    content: str
+    timestamp: Optional[str] = None
+
+
+class ChatRequest(BaseModel):
+    message: str
+    history: list[ChatMessage] = []
+
+
+class ChatResponse(BaseModel):
+    response: str
+    diagrams: list[str] = []
+    citations: list[dict[str, Any]] = []
+    suggested_followups: list[str] = []
